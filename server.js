@@ -13,6 +13,7 @@ const ALLOWED_PROTOS = ['http', 'https'];
 const ALLOWED_GZIP_METHODS = ['transform', 'decode', 'append'];
 const DEFAULT_PROTO = 'https';
 const DEFAULT_USERAGENT = 'Mozilla';
+const DEFAULT_PORT = 80;
 
 const getHosts = (hosts) => {
   if (!hosts) {
@@ -24,7 +25,7 @@ const getHosts = (hosts) => {
     const host = hosts[i];
     try {
       (() => new URL(`${DEFAULT_PROTO}://${host}`))();
-    } catch (e) {
+    } catch (error) {
       throw new Error(`Configuration error! Invalid host domain on item ${host}`);
     }
     parsed.push({
@@ -35,7 +36,7 @@ const getHosts = (hosts) => {
 };
 
 // Environment Constants
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || DEFAULT_PORT;
 const ACCESS_KEY = process.env.ACCESS_KEY && Buffer.from(process.env.ACCESS_KEY);
 const USE_WHITELIST = process.env.USE_WHITELIST === 'true';
 const USE_OVERRIDE_STATUS = process.env.USE_OVERRIDE_STATUS === 'true';
