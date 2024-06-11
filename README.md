@@ -18,7 +18,7 @@ This makes Roblox HTTP requests more complete by adding support for the followin
 - Fork this repository to your repository. You may name it whatever you like.
 - Create a Heroku account here: https://signup.heroku.com. Make sure to verify your email and set a password. If you already have a Heroku account, log into it.
 - Copy and paste this link into your browser https://heroku.com/deploy?template=https://github.com/YOUR-GITHUB-NAME-HERE/YOUR-FORK-NAME-HERE (do not press enter yet)
--  change `YOUR-GITHUB-NAME-HERE` to the name of your GitHub account, and `YOUR-FORK-NAME-HERE` to the name of your forked repository.
+-  change `YOUR-GITHUB-NAME-HERE` to the name of your GitHub account, and `YOUR-FORK-NAME-HERE` to the name of your forked repository. Then enter the website.
 - Type in whatever name you want.
 - Click "Deploy app". Don't touch any of the variables unless you know what you're doing.
 - Click view and copy the URL.
