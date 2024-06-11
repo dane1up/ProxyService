@@ -88,9 +88,9 @@ const appendHead = (proxyRes, res, append) => {
   }
   if (handler) {
     encoder = new Promise((resolve, reject) => {
-      handler(append, (e, buf) => {
-        if (e) {
-          reject(e);
+      handler(append, (error, buf) => {
+        if (error) {
+          reject(error);
         }
         appendEncoded = buf;
         resolve();
@@ -105,8 +105,8 @@ const appendHead = (proxyRes, res, append) => {
     if (!appendEncoded) {
       try {
         await encoder;
-      } catch (e) {
-        console.error(`Encoder error: ${e}`);
+      } catch (error) {
+        console.error(`Encoder error: ${error}`);
         return;
       }
     }
@@ -242,15 +242,15 @@ server.on('request', (req, res) => {
   const accessKey = req.headers['proxy-access-key'];
   const requestedTarget = req.headers['proxy-target'];
   if (accessKey && requestedTarget) {
-    req.on('error', (err) => {
-      console.error(`Request error: ${err}`);
+    req.on('error', (error) => {
+      console.error(`Request error: ${error}`);
     });
     const accessKeyBuffer = Buffer.from(accessKey);
     if (accessKeyBuffer.length === ACCESS_KEY.length && crypto.timingSafeEqual(accessKeyBuffer, ACCESS_KEY)) {
       let parsedTarget;
       try {
         parsedTarget = new URL(`https://${requestedTarget}`);
-      } catch (e) {
+      } catch (error) {
         writeErr(res, 400, 'Invalid target');
         return;
       }
@@ -283,9 +283,9 @@ server.on('request', (req, res) => {
   }
 });
 
-server.listen(PORT, (err) => {
-  if (err) {
-    console.error(`Server listening error: ${err}`);
+server.listen(PORT, (error) => {
+  if (error) {
+    console.error(`Server listening error: ${error}`);
     return;
   }
   console.log(`Server started on port ${PORT}`);
