@@ -1,4 +1,4 @@
-## Dane's NEW ProxyService
+## New ProxyService
 Roblox's HttpService has always been severely lacking, and has restricted access to many APIs. This open-source project created and maintained by [sentanos](https://github.com/sentanos/ProxyService) aims to serve as a replacement, providing an HTTP client that opens the door to using REST APIs, reading response headers, reading status codes, accessing roblox.com from in-game, and more. Sentanos no longer maintains this proxy, so I took it upon myself to update the documentation and codebase using JavaScript ES6.
 
 Example uses are accessing Roblox, Discord, Trello, and Firebase APIs, including crazy stuff like logging into a Roblox account from in Roblox. You can use this for virtually any API.
@@ -14,7 +14,7 @@ This makes Roblox HTTP requests more complete by adding support for the followin
 - Read the response even if the response contains a 400- or 500- status code (this includes the body, headers, and the status code and message).
 - Access sites usually unavailable, including roblox.com APIs as well as discord webhooks (and being able to view headers means you will be able to obey discord rate limits, which means this proxy [is allowed](https://twitter.com/lolpython/status/967211620970545153)).
 
-**UPDATED Server Setup Tutorial**
+**Server Setup Tutorial**
 - Fork this repository to your repository. You may name it whatever you like.
 - Create a Heroku account here: https://signup.heroku.com. Make sure to verify your email and set a password. If you already have a Heroku account, log into it.
 - Copy and paste this link into your browser https://heroku.com/deploy?template=https://github.com/YOUR-GITHUB-NAME-HERE/YOUR-FORK-NAME-HERE (do not press enter yet)
@@ -26,7 +26,7 @@ This makes Roblox HTTP requests more complete by adding support for the followin
 
 (Setting up without Heroku is simple: run `node server.js` with the environment variables specified [here](/app.json))
 
-**UPDATED Client Setup Tutorial**
+**Client Setup Tutorial**
 - Get the handler script from [here](https://github.com/danemalloy/ProxyService/blob/master/client/ProxyService.mod.lua) and put it in a module script in ServerScriptService.
 - In the script you want to use this from, require the ModuleScript. If your module is named "ProxyService", for example, you would add `local ProxyService = require(game:GetService('ServerScriptService').ProxyService)` to the top of your script.
 - Add a line to create your proxy client, this will generally look like this: `local Proxy = ProxyService:New('PASTE_DOMAIN_HERE', 'PASTE_ACCESS_KEY_HERE')` (see below for a more complete example)
