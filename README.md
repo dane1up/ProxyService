@@ -60,6 +60,15 @@ All methods return
 }
 ```
 
+However, the body will be json decoded into
+```lua
+{
+  ["data"] = {
+    [1] = {any}
+  }
+}
+```
+
 **_Note that all response headers are lowercase_**
 
 Root is the root of your Heroku application including the http:// or https://.
