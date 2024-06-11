@@ -1,5 +1,5 @@
 ## New ProxyService
-Roblox's HttpService has always been severely lacking and restricted access to many game/platform APIs. This open-source project created by [sentanos](https://github.com/sentanos/ProxyService) aims to serve as a replacement, providing an HTTP client that opens the door to using REST APIs, reading response headers, reading status codes, accessing roblox.com from in-game, and more. Sentanos no longer maintains this proxy, so I took it upon myself to update the documentation and codebase using JavaScript ES6.
+Roblox's HttpService has always been severely lackluster due to the poor methods and restricted access to many game/platform APIs. This open-source project created by [sentanos](https://github.com/sentanos/ProxyService) aims to serve as a replacement, providing an HTTP client that opens the door to using REST APIs, reading response headers, reading status codes, accessing roblox.com from in-game, and more. Sentanos no longer maintains this proxy, so I took it upon myself to update the documentation and codebase using JavaScript ES6.
 
 Example uses are accessing Roblox, Discord, Trello, and Firebase APIs, including crazy stuff like logging into a Roblox account from in Roblox. You can use this for virtually any API.
 
