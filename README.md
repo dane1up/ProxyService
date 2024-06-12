@@ -158,7 +158,11 @@ Example response:
     "set-cookie": "one=two;",
     "content-encoding": "gzip"
   },
-  "body": "Success",
+  "body": {
+    ["data"] = {
+      [1] = "success"
+    }
+  },
   "status": {
     "code": 200,
     "message": "OK"
