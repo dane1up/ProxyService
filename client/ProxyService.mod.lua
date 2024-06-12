@@ -12,8 +12,8 @@ local processBody = function (body)
 	local pos, _, match = body:find('"""(.+)"""$')
 	local data = _decode(http, match)
 	local res = {
-		headers = data.headers,
-		status = data.status,
+		headers = http:JSONDecode(data.headers),
+		status = http:JSONDecode(data.status),
 		body = http:JSONDecode(body:sub(1, pos - 1))
 	}
 	return res
