@@ -159,7 +159,7 @@ Example response:
     "content-encoding": "gzip"
   },
   "body": {
-    ["data"]: {[1] = "success"},
+    ["data"]: {[1]: "success"},
   },
   "status": {
     "code": 200,
