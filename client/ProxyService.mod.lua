@@ -6,7 +6,7 @@ local _decode = http.JSONDecode
 local POST_METHODS = {'POST', 'PUT', 'PATCH'}
 local GET_METHODS = {'GET', 'DELETE'}
 
-local RoProxy = {}
+local NewProxyService = {}
 
 local processBody = function (body)
 	local pos, _, match = body:find('"""(.+)"""$')
@@ -76,7 +76,7 @@ local urlProcessor = function (callback)
 end
 
 local generateWithHandler = function (handler, method, handlerMethod)
-	DaneRoProxy[method:sub(1,1):upper() .. method:sub(2):lower()] = urlProcessor(handler(method))
+	NewProxyService[method:sub(1,1):upper() .. method:sub(2):lower()] = urlProcessor(handler(method))
 end
 
 for _, method in next, POST_METHODS do
@@ -86,7 +86,7 @@ for _, method in next, GET_METHODS do
 	generateWithHandler(generateGetHandler, method)
 end
 
-function DaneRoProxy:New(root, accessKey)
+function NewProxyService:New(root, accessKey)
 	if root:sub(#root, #root) == '/' then
 		root = root:sub(1, #root - 1)
 	end
@@ -98,4 +98,4 @@ function DaneRoProxy:New(root, accessKey)
 	return self
 end
 
-return RoProxy
+return NewProxyService
